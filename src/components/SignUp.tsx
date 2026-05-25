@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BokLogo from "./BokLogo";
+import ribbonBackdrop from "../assets/images/ribbon_backdrop_1779651790316.png";
 
 interface SignUpProps {
   onNavigate: (route: string, params?: Record<string, any>) => void;
@@ -37,7 +38,7 @@ export default function SignUp({ onNavigate }: SignUpProps) {
       {/* LEFT PANEL: Shared clouds background */}
       <div className="relative hidden md:flex md:w-1/2 h-full overflow-hidden" id="signup-left-panel">
         <img
-          src="/src/assets/images/ribbon_backdrop_1779651790316.png"
+          src={ribbonBackdrop}
           alt="Serene skies with ribbon"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[10s] hover:scale-105"
           referrerPolicy="no-referrer"
