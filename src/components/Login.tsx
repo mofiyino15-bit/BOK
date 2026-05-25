@@ -46,13 +46,13 @@ export default function Login({ onNavigate }: LoginProps) {
         <img
           src={ribbonBackdrop}
           alt="Serene Scandinavian skies with ribbon"
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[10s] hover:scale-105"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[10s] hover:scale-105 filter blur-[16px]"
           referrerPolicy="no-referrer"
         />
         
         {/* Centered large WELCOME display typography overlay */}
-        <div className="absolute inset-0 flex items-center justify-center p-8 bg-black/5">
-          <h2 className="text-white text-5xl lg:text-7xl font-sans tracking-[0.25em] font-extrabold uppercase animate-in fade-in zoom-in-95 duration-700 text-center drop-shadow-sm select-none">
+        <div className="absolute inset-0 flex items-center justify-center p-8 bg-grey-25/50 backdrop-blur-sm">
+          <h2 className="text-grey-700 text-5xl lg:text-7xl font-sans tracking-[0.25em] font-extrabold uppercase animate-in fade-in zoom-in-95 duration-700 text-center select-none">
             WELCOME
           </h2>
         </div>
