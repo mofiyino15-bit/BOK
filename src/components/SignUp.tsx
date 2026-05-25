@@ -40,13 +40,13 @@ export default function SignUp({ onNavigate }: SignUpProps) {
         <img
           src={ribbonBackdrop}
           alt="Serene skies with ribbon"
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[10s] hover:scale-105"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[10s] hover:scale-105 filter blur-[16px]"
           referrerPolicy="no-referrer"
         />
         
         {/* Centered large WELCOME display overlay */}
-        <div className="absolute inset-0 flex items-center justify-center p-8 bg-black/5">
-          <h2 className="text-white text-5xl lg:text-6xl font-sans tracking-[0.25em] font-semibold uppercase text-center select-none">
+        <div className="absolute inset-0 flex items-center justify-center p-8 bg-grey-25/50 backdrop-blur-sm">
+          <h2 className="text-grey-700 text-5xl lg:text-6xl font-sans tracking-[0.25em] font-semibold uppercase text-center select-none">
             WELCOME
           </h2>
         </div>
