@@ -114,7 +114,7 @@ export default function Landing({ onNavigate }: LandingProps) {
         {/* Full-width atmospheric background layer */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/ribbon_backdrop_1779651790316.png"
+            src="ribbon_backdrop_1779651790316.png"
             alt="Atmospheric clouds scenery"
             className="w-full h-full object-cover select-none pointer-events-none opacity-80"
             referrerPolicy="no-referrer"
@@ -311,7 +311,7 @@ export default function Landing({ onNavigate }: LandingProps) {
         {/* Sky trace underlay in black panel */}
         <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-screen">
           <img
-            src="/src/assets/images/ribbon_backdrop_1779651790316.png"
+            src="ribbon_backdrop_1779651790316.png"
             alt="Sky background mesh"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
