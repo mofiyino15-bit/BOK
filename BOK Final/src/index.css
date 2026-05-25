@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Afacad:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Barlow Semi Condensed", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Afacad", ui-serif, Cambria, serif;
+  --font-secondary: "Afacad", sans-serif;
+
+  /* Redefined font sizes to shift type scale up */
+  --text-xs: 0.875rem; /* formerly sm (14px) */
+  --text-xs--line-height: 1.25rem; /* 20px */
+
+  --text-sm: 1rem; /* formerly base (16px) */
+  --text-sm--line-height: 1.5rem; /* 24px */
+
+  --text-base: 1.125rem; /* formerly lg (18px) */
+  --text-base--line-height: 1.5rem; /* 24px */
+
+  --text-lg: 1.25rem; /* formerly xl (20px) */
+  --text-lg--line-height: 1.75rem; /* 28px */
+
+  /* Form and document fallback weights, mapping to the next closest weight (Semi Bold: 600) per styles.md guidelines */
+  --font-weight-bold: 600;
+  --font-weight-extrabold: 600;
+  --font-weight-black: 600;
+
+  /* Semantic Theme Mappings */
+  --color-primary: #F8F8F8;
+
+  /* Primitive Colors - Blue Brand */
+  --color-blue-brand-50: #F0F9FF;
+  --color-blue-brand-100: #E0F2FE;
+  --color-blue-brand-200: #BAE6FD;
+  --color-blue-brand-300: #7DD3FC;
+  --color-blue-brand-400: #38BDF8;
+  --color-blue-brand-500: #0EA5E9;
+  --color-blue-brand-600: #0284C7;
+  --color-blue-brand-700: #0369A1;
+  --color-blue-brand-800: #075985;
+  --color-blue-brand-900: #0C4A6E;
+
+  /* Standard Blue Map (Overwritten to Sky Blue Brand) */
+  --color-blue-50: #F0F9FF;
+  --color-blue-100: #E0F2FE;
+  --color-blue-200: #BAE6FD;
+  --color-blue-300: #7DD3FC;
+  --color-blue-400: #38BDF8;
+  --color-blue-500: #0EA5E9;
+  --color-blue-600: #0284C7;
+  --color-blue-700: #0369A1;
+  --color-blue-800: #075985;
+  --color-blue-900: #0C4A6E;
+
+  /* Primitive Colors - Grey Neutral */
+  --color-grey-25: #F8F8F8;
+  --color-grey-50: #F2F2F2;
+  --color-grey-100: #E3E4E6;
+  --color-grey-200: #C6C9CE;
+  --color-grey-300: #AAADB5;
+  --color-grey-400: #8D929D;
+  --color-grey-500: #717784;
+  --color-grey-600: #5A5F6A;
+  --color-grey-700: #44474F;
+  --color-grey-800: #2D3035;
+  --color-grey-900: #17181A;
+
+  /* Primitive Status - Green (Positive/Paid) */
+  --color-green-100: #D2F3E1;
+  --color-green-200: #A5E6C4;
+  --color-green-505: #1FC166;
+  --color-green-500: #1FC16B;
+  --color-green-600: #199A56;
+
+  /* Primitive Status - Red (Negative/Overdue) */
+  --color-red-25: #FCF5F5;
+  --color-red-50: #FFF5F5;
+  --color-red-100: #FED7DA;
+  --color-red-200: #FED7DA;
+  --color-red-205: #FED7DA;
+  --color-red-300: #FB3748;
+  --color-red-400: #FB3748;
+  --color-red-500: #FB3748;
+  --color-red-600: #C92C3A;
+  --color-red-650: #C92C3A;
+  --color-red-700: #C92C3A;
+  --color-red-750: #C92C3A;
+
+  /* Primitive Status - Amber (Warning/Notice) */
+  --color-amber-100: #FEF9C3;
+  --color-amber-500: #EAB308;
+  --color-amber-600: #CA8A04;
+  --color-amber-800: #854D0E;
+
+  /* Primitive Status - Yellow */
+  --color-yellow-100: #FDF0D2;
+  --color-yellow-500: #F6B51E;
+
+  /* Primitive Status - Blue Status (Info/Upcoming) */
+  --color-brandblue-100: #D6DEFF;
+  --color-brandblue-500: #335CFF;
+  --color-brandblue-600: #294ACC;
+
+  /* Primitive Status - Purple */
+  --color-purple-100: #E5DCFD;
+  --color-purple-500: #7D52F4;
+
+  /* Spacing system mapped visually to tokens where needed */
+  --spacing-2xs: 2px;
+  --spacing-xs-token: 4px;
+  --spacing-s-token: 8px;
+  --spacing-m-token: 12px;
+  --spacing-l-token: 16px;
+  --spacing-xl-token: 24px;
+  --spacing-2xl-token: 32px;
+  --spacing-3xl-token: 40px;
+  --spacing-4xl-token: 48px;
+  --spacing-5xl-token: 56px;
+  --spacing-6xl-token: 64px;
+}
+
+/* Base resets & layouts */
+body {
+  font-family: var(--font-sans);
+  background-color: #F8F8F8; /* grey-25 background */
+  color: #17181A; /* grey-900 / content-primary */
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom fonts for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Scrollbar styling - Scandinavian Cleanliness */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #AAADB5;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #717784;
+}
+
+/* Sidebar dark overlay and modal-state behavior mimicking the page-wide modal style */
+#bok-application-canvas:has(#invoice-pdf-modal-overlay, #product-library-overlay, #delete-client-modal, #delete-invoice-modal) aside {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes sidebarOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#bok-application-canvas:has(#invoice-pdf-modal-overlay) aside::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9999;
+  pointer-events: auto;
+  cursor: not-allowed;
+  animation: sidebarOverlayFadeIn 0.2s ease-out forwards;
+}
+
+#bok-application-canvas:has(#product-library-overlay) aside::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9999;
+  pointer-events: auto;
+  cursor: not-allowed;
+  animation: sidebarOverlayFadeIn 0.2s ease-out forwards;
+}
+
+#bok-application-canvas:has(#delete-client-modal, #delete-invoice-modal) aside::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(18, 20, 24, 0.4);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  z-index: 9999;
+  pointer-events: auto;
+  cursor: not-allowed;
+  animation: sidebarOverlayFadeIn 0.15s ease-out forwards;
+}
+
+/* Remove all focus outlines globally */
+*:focus, *:focus-visible, button:focus, select:focus, input:focus, textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove all drop/box shadows across the entire project completely */
+*, ::before, ::after {
+  box-shadow: none !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-shadow-colored: 0 0 #0000 !important;
+  text-shadow: none !important;
+  filter: drop-shadow(0 0 0 transparent) !important;
+}
+
+/* Custom scrollbar adjustments for the PDF modal viewport to resolve grey gutter/thick border */
+#modal-pdf-scroll-viewport::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+#modal-pdf-scroll-viewport::-webkit-scrollbar-track {
+  background: #ffffff !important;
+}
+
+#modal-pdf-scroll-viewport::-webkit-scrollbar-thumb {
+  background-color: #E3E4E6 !important; /* solid grey-100 thumb */
+  border-radius: 4px !important;
+  border: 2px solid #ffffff !important; /* white border to separate and float thumb */
+}
+
+#modal-pdf-scroll-viewport::-webkit-scrollbar-thumb:hover {
+  background-color: #AAADB5 !important; /* grey-200 on hover */
+}
+
+#modal-pdf-scroll-viewport {
+  scrollbar-width: thin !important;
+  scrollbar-color: #E3E4E6 #ffffff !important;
+}
+
+
+
