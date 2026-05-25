@@ -15,6 +15,8 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Landing from "./components/Landing";
 
+import ribbonBackdrop from "./assets/images/ribbon_backdrop_1779651790316.png";
+
 import { Invoice, Client, INITIAL_CLIENTS, INITIAL_INVOICES } from "./types";
 
 export default function App() {
@@ -256,7 +258,7 @@ export default function App() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
         style={{ 
-          backgroundImage: "url('/src/assets/images/ribbon_backdrop_1779651790316.png')",
+          backgroundImage: `url(${ribbonBackdrop})`,
           opacity: 0.15,
           filter: "blur(48px)",
           transform: "scale(1.15)", // Premium scale preventing white corner halo bleeding
