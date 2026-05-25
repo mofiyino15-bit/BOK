@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { ArrowRight, CheckCircle, Smartphone, Globe, Shield, RefreshCw, Mail, Clock, ShieldCheck, AlertCircle, Sparkles, Check, ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowRight, CheckCircle, Smartphone, Globe, Shield, RefreshCw, Mail, Clock, ShieldCheck, AlertCircle, Sparkles, Check, ArrowUpRight } from "lucide-react";
 import BokLogo from "./BokLogo";
+import ribbonBackdrop from "../assets/images/ribbon_backdrop_1779651790316.png";
 
 interface LandingProps {
   onNavigate: (route: string, params?: Record<string, any>) => void;
 }
 
 export default function Landing({ onNavigate }: LandingProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [nudgeStates, setNudgeStates] = useState<Record<string, { status: string; count: number; loading: boolean }>>({
     "inv-bright": { status: "Friendly Nudge Sent", count: 1, loading: false },
     "inv-acme": { status: "Ready to Nudge", count: 0, loading: false },
@@ -80,7 +80,7 @@ export default function Landing({ onNavigate }: LandingProps) {
           </button>
 
           {/* Right Action buttons - Replicating exact web app button padding & styling */}
-          <div className="hidden md:flex items-center gap-4" id="nav-right-actions">
+          <div className="flex items-center gap-4" id="nav-right-actions">
             <button
               onClick={() => onNavigate("login")}
               className="px-4 py-2.5 text-sm font-semibold text-grey-600 hover:text-grey-900 hover:bg-grey-50 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5"
@@ -95,16 +95,6 @@ export default function Landing({ onNavigate }: LandingProps) {
             </button>
           </div>
 
-          {/* Hamburger Toggle for Mobile/Tablet Products Menu */}
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden p-2 text-grey-600 hover:text-grey-900 transition-colors cursor-pointer rounded-lg relative"
-            title="Open Products Menu"
-            id="landing-hamburger-toggle"
-          >
-            <Menu className="w-5.5 h-5.5 stroke-[2.2]" />
-          </button>
-
         </div>
       </header>
 
@@ -114,7 +104,7 @@ export default function Landing({ onNavigate }: LandingProps) {
         {/* Full-width atmospheric background layer */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/ribbon_backdrop_1779651790316.png"
+            src={ribbonBackdrop}
             alt="Atmospheric clouds scenery"
             className="w-full h-full object-cover select-none pointer-events-none opacity-80"
             referrerPolicy="no-referrer"
@@ -311,7 +301,7 @@ export default function Landing({ onNavigate }: LandingProps) {
         {/* Sky trace underlay in black panel */}
         <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-screen">
           <img
-            src="/src/assets/images/ribbon_backdrop_1779651790316.png"
+            src={ribbonBackdrop}
             alt="Sky background mesh"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -363,97 +353,6 @@ export default function Landing({ onNavigate }: LandingProps) {
 
         </div>
       </footer>
-
-      {/* 8. LANDING MOBILE MENU DRAWER (SLIDE-IN FROM RIGHT) */}
-      <div id="landing-mobile-menu-portal" className={`fixed inset-0 z-[100] pointer-events-none`}>
-        {/* Backdrop overlay */}
-        <div
-          onClick={() => setMobileMenuOpen(false)}
-          className={`fixed inset-0 bg-slate-950/40 backdrop-blur-sm transition-opacity duration-300 ${
-            mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
-          id="landing-mobile-backdrop"
-        />
-
-        {/* Drawer container */}
-        <div
-          className={`fixed inset-y-0 right-0 w-[280px] bg-white border-l border-grey-100 p-6 flex flex-col justify-between transition-transform duration-300 ease-in-out shadow-2xl pointer-events-auto ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-          id="landing-mobile-drawer"
-        >
-          <div className="space-y-8">
-            {/* Header / Brand */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <BokLogo size={24} />
-                <span className="font-extrabold text-grey-900 tracking-tight text-base uppercase">Bōk</span>
-              </div>
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-1.5 text-grey-450 hover:text-grey-900 hover:bg-grey-50 rounded-lg cursor-pointer transition-colors"
-                title="Close Products Menu"
-                id="landing-mobile-drawer-close"
-              >
-                <X className="w-5 h-5 stroke-[2]" />
-              </button>
-            </div>
-
-            {/* Navigation options list */}
-            <div className="space-y-6 text-left">
-              <nav className="flex flex-col gap-5">
-                <button
-                  onClick={() => {
-                    scrollToSection("features");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-base font-semibold text-grey-600 hover:text-grey-900 text-left cursor-pointer transition-colors"
-                >
-                  Features
-                </button>
-                <button
-                  onClick={() => {
-                    scrollToSection("how-it-works");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-base font-semibold text-grey-600 hover:text-grey-900 text-left cursor-pointer transition-colors"
-                >
-                  How It Works
-                </button>
-              </nav>
-
-              <hr className="border-grey-100" />
-
-              {/* Actions Frame housing primary and secondary buttons */}
-              <div className="flex flex-col gap-4" id="landing-mobile-actions-frame">
-                <button
-                  onClick={() => {
-                    onNavigate("login");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full text-center px-4 py-3 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-sm transition-colors cursor-pointer transform active:scale-95"
-                >
-                  Get Started Free
-                </button>
-                <button
-                  onClick={() => {
-                    onNavigate("login");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full text-center px-4 py-3 text-sm font-semibold text-grey-700 hover:text-grey-900 hover:bg-grey-50 border border-grey-200 rounded-lg transition-colors cursor-pointer transform active:scale-95"
-                >
-                  Log In
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer inside drawer */}
-          <div className="text-[10px] text-grey-400 font-secondary text-left">
-            &copy; 2026 Bok. All rights reserved. Registered in Copenhagen, Denmark.
-          </div>
-        </div>
-      </div>
 
     </div>
   );
